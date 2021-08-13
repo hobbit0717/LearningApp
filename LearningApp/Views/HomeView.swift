@@ -27,21 +27,38 @@ struct HomeView: View {
                             
                             VStack (spacing: 20) {
                                 NavigationLink(
-                                    destination: ContentView()
+                                    destination:
+                                        ContentView()
                                         .onAppear(perform: {
                                             model.beginModule(module.id)
                                         }),
                                     tag: module.id, 
-                                    selection: $model.currentContentSelected,
-                                    label: {
-                                        // Learning Card
-                                        HomeViewRow(image: module.content.image, title: "Learn \(module.category)", description: module.content.description, count: "\(module.content.lessons.count) Lessons", time: module.content.time)
-                                    })
-                            
+                                    selection: $model.currentContentSelected) {
+                                    
+                                    // Learning Card
+                                    HomeViewRow(image: module.content.image, title: "Learn \(module.category)", description: module.content.description, count: "\(module.content.lessons.count) Lessons", time: module.content.time)
+                                }
+                                
+                                NavigationLink(
+                                    destination:
+                                        TestView()
+                                        .onAppear(perform: {
+                                            model.beginTest(module.id)
+                                        }),
+                                    tag: module.id,
+                                    selection: $model.currentTestSelected) {
+                                    // Test Card
+                                    HomeViewRow(image: module.test.image, title: "\(module.category) Test", description: module.test.description, count: "\(module.test.questions.count) Questions", time: module.test.time)
+                                }
+                                
+                                // There is a bug in IOS 14.5 where having more than one navigation link and tapping on them
+                                // takes us to home view right away
+                                // below is temporary fix
+                                NavigationLink(destination: EmptyView()) {
+                                    EmptyView()
+                                }
                                 
                                 
-                                // Test Card
-                                HomeViewRow(image: module.test.image, title: "\(module.category) Test", description: module.test.description, count: "\(module.test.questions.count) Questions", time: module.test.time)
                             }
                             
                             
