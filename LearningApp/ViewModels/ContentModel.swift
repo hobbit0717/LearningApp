@@ -66,6 +66,7 @@ class ContentModel: ObservableObject {
         let styleUrl = Bundle.main.url(forResource: "style", withExtension: "html")
         
         do {
+            
             // Read the file into a data object
             let styleData = try Data(contentsOf: styleUrl!)
             
@@ -73,7 +74,7 @@ class ContentModel: ObservableObject {
         }
         catch {
             // Log error
-            print("Coudn't parse style data")
+            print("Couldn't parse style data")
         }
         
     }
@@ -113,7 +114,7 @@ class ContentModel: ObservableObject {
     
     func nextLesson() {
         
-        // Advance the lesson
+        // Advance the lesson index
         currentLessonIndex += 1
         
         // Check that it is within range
@@ -139,7 +140,7 @@ class ContentModel: ObservableObject {
         // Set the current module
         beginModule(moduleId)
         
-        // Set the current question
+        // Set the current question index
         currentQuestionIndex = 0
         
         
@@ -149,6 +150,26 @@ class ContentModel: ObservableObject {
             // Set the question content
             codeText = addStyling(currentQuestion!.content)
         }
+    }
+    
+    func nextQuestion() {
+        
+        // Advance the question index
+        currentQuestionIndex += 1
+        
+        // Check that it's within the range of questions
+        if currentQuestionIndex < currentModule!.test.questions.count {
+            
+            // Set the current question
+            currentQuestion = currentModule!.test.questions[currentQuestionIndex]
+            codeText = addStyling(currentQuestion!.content)
+        }
+        else {
+            // If not, then reset the properties
+            currentQuestionIndex = 0
+            currentQuestion = nil
+        }
+        
     }
     
     // MARK: - Code Styling
@@ -165,7 +186,7 @@ class ContentModel: ObservableObject {
         // Add the html data
         data.append(Data(htmlString.utf8))
         
-        // Convert to attrivuted string
+        // Convert to attributed string
         if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
             resultString = attributedString
         }
