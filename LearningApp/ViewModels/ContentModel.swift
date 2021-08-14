@@ -181,7 +181,7 @@ class ContentModel: ObservableObject {
         
         // Add the styling data
         if styleData != nil {
-            data.append(self.styleData!)
+            data.append(styleData!)
         }
         // Add the html data
         data.append(Data(htmlString.utf8))

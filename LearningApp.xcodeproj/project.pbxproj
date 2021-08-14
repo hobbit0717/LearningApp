@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		523C030426C831FA00CB11E3 /* TestResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C030326C831FA00CB11E3 /* TestResultView.swift */; };
 		52ED5D1326BF826D009649F4 /* LearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED5D1226BF826D009649F4 /* LearningApp.swift */; };
 		52ED5D1526BF826D009649F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED5D1426BF826D009649F4 /* HomeView.swift */; };
 		52ED5D1726BF8272009649F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52ED5D1626BF8272009649F4 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		523C030326C831FA00CB11E3 /* TestResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultView.swift; sourceTree = "<group>"; };
 		52ED5D0F26BF826D009649F4 /* LearningApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52ED5D1226BF826D009649F4 /* LearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningApp.swift; sourceTree = "<group>"; };
 		52ED5D1426BF826D009649F4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				52ED5D3226C22F2C009649F4 /* ContentViewRow.swift */,
 				52ED5D3426C2DDEE009649F4 /* ContentDetailView.swift */,
 				52ED5D7E26C60D4A009649F4 /* TestView.swift */,
+				523C030326C831FA00CB11E3 /* TestResultView.swift */,
 				52ED5D5D26C3230E009649F4 /* CodeTextView.swift */,
 				52ED5D5F26C333F6009649F4 /* RectangleCard.swift */,
 			);
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52ED5D7F26C60D4A009649F4 /* TestView.swift in Sources */,
+				523C030426C831FA00CB11E3 /* TestResultView.swift in Sources */,
 				52ED5D1526BF826D009649F4 /* HomeView.swift in Sources */,
 				52ED5D2F26C22242009649F4 /* HomeViewRow.swift in Sources */,
 				52ED5D3126C2284E009649F4 /* ContentView.swift in Sources */,
