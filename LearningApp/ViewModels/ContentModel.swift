@@ -116,8 +116,11 @@ class ContentModel: ObservableObject {
                 // Decode
                 let modules = try decoder.decode([Module].self, from: data!)
                 
-                // Append parsed modules into modules property
-                self.modules += modules
+                DispatchQueue.main.async {
+                    // Append parsed modules into modules property
+                    self.modules += modules
+                }
+                
                 
             }
             catch {
@@ -173,6 +176,7 @@ class ContentModel: ObservableObject {
         
         // Check that it is within range
         if currentLessonIndex < currentModule!.content.lessons.count {
+            
             // Set the current lesson property
             currentLesson = currentModule!.content.lessons[currentLessonIndex]
             codeText = addStyling(currentLesson!.explanation)
